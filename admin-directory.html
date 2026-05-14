@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Directory Management | Mystery School of Mother Earth</title>
+    <meta name="description" content="Private directory management for Mystery School of Mother Earth.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="management-body">
+    <header class="site-header dashboard-header">
+      <a class="brand" href="manage.html" aria-label="Back to admin dashboard">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Directory Management</strong>
+          <small>private administration</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Directory management navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a href="member.html">Member Dashboard</a>
+        <a href="manage.html">Admin Home</a>
+        <a href="admin-members.html">Members</a>
+        <a href="admin-chapters.html">Chapters</a>
+        <a href="admin-coupons.html">Coupons</a>
+        <button class="nav-button" id="admin-logout-button" type="button">Log out</button>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main>
+      <section class="dashboard-section directory-admin-section">
+        <div class="section-heading">
+          <p class="section-kicker">Seeded directory</p>
+          <h2>Add people now, let the right person claim later.</h2>
+          <p>Create public directory listings for aligned people, practitioners, teachers, guides, events, creator platforms, and local businesses before they have a member account. Claims and affiliate notes stay private until you verify and connect the listing.</p>
+        </div>
+
+        <div class="member-ops-summary" id="directory-summary"></div>
+
+        <div class="member-ops-layout">
+          <form id="directory-form" class="deliverable-form">
+            <h3>Add directory listing</h3>
+            <label>Name / business / offering
+              <input name="name" required placeholder="Example: Willow Moon Hypnosis">
+            </label>
+            <label>Category
+              <select name="category" id="directory-category"></select>
+            </label>
+            <label class="full">Tags
+              <input name="tags" list="directory-tag-options" placeholder="yoga, meditation, reiki, workshops">
+              <datalist id="directory-tag-options"></datalist>
+            </label>
+            <label>Directory scope
+              <select name="scope" id="directory-scope"></select>
+            </label>
+            <label>City
+              <input name="city" placeholder="Peotone">
+            </label>
+            <label>State
+              <input name="state" placeholder="IL">
+            </label>
+            <label>ZIP
+              <input name="zip" inputmode="numeric" placeholder="60468">
+            </label>
+            <label class="full">Short public summary
+              <textarea name="summary" rows="3" placeholder="Grounded summary of who they are or why they belong in this directory."></textarea>
+            </label>
+            <label class="full">Offerings / keywords
+              <textarea name="offerings" rows="3" placeholder="Hypnosis, energy work, herbal consultations, circles, classes, events..."></textarea>
+            </label>
+            <label>Website
+              <input name="website" placeholder="https://...">
+            </label>
+            <label>Social link
+              <input name="social" placeholder="Facebook, Instagram, Eventbrite...">
+            </label>
+            <label>Contact email
+              <input type="email" name="contactEmail" placeholder="Private admin reference">
+            </label>
+            <label>Status
+              <select name="status">
+                <option value="published">Published</option>
+                <option value="private">Private draft</option>
+              </select>
+            </label>
+            <label>Public priority
+              <select name="surfacePriority">
+                <option value="standard">Standard</option>
+                <option value="featured">Featured</option>
+                <option value="spotlight">Spotlight</option>
+              </select>
+            </label>
+            <label>Event date
+              <input type="date" name="eventDate">
+            </label>
+            <label class="full">Admin notes
+              <textarea name="adminNotes" rows="3" placeholder="How you found them, outreach status, why they may be aligned..."></textarea>
+            </label>
+            <button class="button primary" type="submit">Add listing</button>
+            <p id="directory-status" role="status"></p>
+          </form>
+
+          <div class="directory-admin-stack">
+            <section class="member-admin-card">
+              <h3>Agent research import</h3>
+              <p class="muted">Paste JSON from OpenClaw here. Imported items go into review first, then you choose what becomes a public directory listing.</p>
+              <details class="schema-details">
+                <summary>OpenClaw format</summary>
+                <pre>{
+  "name": "Business or practitioner name",
+  "category": "Yoga studio",
+  "tags": ["yoga", "meditation", "reiki", "classes"],
+  "scope": "Local Chapter 001 area",
+  "city": "Peotone",
+  "state": "IL",
+  "zip": "60468",
+  "summary": "Short public summary",
+  "offerings": "Hypnosis, healing arts, classes",
+  "website": "https://example.com",
+  "social": "https://facebook.com/example",
+  "contactEmail": "",
+  "sourceUrl": "Where OpenClaw found it",
+  "confidence": "high",
+  "adminNotes": "Why this may fit"
+}</pre>
+              </details>
+              <form id="agent-import-form" class="agent-import-form">
+                <label class="full">Research JSON
+                  <textarea name="agentJson" rows="9" placeholder='Paste one object or an array of objects from OpenClaw'></textarea>
+                </label>
+                <button class="button primary" type="submit">Import to review queue</button>
+                <p id="agent-import-status" role="status"></p>
+              </form>
+            </section>
+            <section class="member-admin-card">
+              <h3>Research review queue</h3>
+              <div id="research-queue-list" class="deliverable-list"></div>
+            </section>
+            <section class="member-admin-card">
+              <h3>Affiliate opportunities</h3>
+              <p class="muted">Track application status and paste your approved affiliate link. When an affiliate link is saved, the public directory uses it as the main visitor link.</p>
+              <div id="affiliate-opportunity-list" class="deliverable-list"></div>
+            </section>
+            <section class="member-admin-card">
+              <h3>Map planning</h3>
+              <p class="muted">As listings build up, this can become a real map view. For now, ZIP codes show where directory activity is forming.</p>
+              <div id="directory-map-planner" class="zip-map-planner"></div>
+            </section>
+            <section class="member-admin-card">
+              <h3>Claim requests</h3>
+              <div id="claim-list" class="deliverable-list"></div>
+            </section>
+            <section class="member-admin-card">
+              <h3>Directory listings</h3>
+              <div class="directory-table-tools" aria-label="Directory listing filters">
+                <label>Search
+                  <input id="directory-search" placeholder="Name, city, tag, offering...">
+                </label>
+                <label>Status
+                  <select id="directory-status-filter">
+                    <option value="all">All</option>
+                    <option value="published">Published</option>
+                    <option value="private">Private draft</option>
+                  </select>
+                </label>
+                <label>Category
+                  <select id="directory-category-filter">
+                    <option value="all">All categories</option>
+                  </select>
+                </label>
+                <label>Tag
+                  <select id="directory-tag-filter">
+                    <option value="all">All tags</option>
+                  </select>
+                </label>
+              </div>
+              <div id="admin-directory-list" class="deliverable-list"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="admin-directory.js" type="module"></script>
+  </body>
+</html>

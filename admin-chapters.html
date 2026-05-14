@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapter Management | Mystery School of Mother Earth</title>
+    <meta name="description" content="Chapter management for Mystery School of Mother Earth.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="management-body">
+    <header class="site-header dashboard-header">
+      <a class="brand" href="manage.html" aria-label="Back to admin dashboard">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Chapter Management</strong>
+          <small>private administration</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Chapter management navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a href="member.html">Member Dashboard</a>
+        <a href="manage.html">Admin Home</a>
+        <a href="admin-members.html">Members</a>
+        <a href="admin-directory.html">Directory</a>
+        <a href="admin-coupons.html">Coupons</a>
+        <button class="nav-button" id="admin-logout-button" type="button">Log out</button>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main>
+      <section class="dashboard-section chapter-admin-section">
+        <div class="section-heading">
+          <p class="section-kicker">Local chapters</p>
+          <h2>Chapter 001 is the first local chapter.</h2>
+          <p>Use this page to keep the global PMA network separate from local chapter participation. Members can belong to the umbrella association without being placed into a chapter.</p>
+        </div>
+
+        <div id="chapter-list" class="chapter-list"></div>
+
+        <section class="chapter-card event-planner-card">
+          <div class="section-heading compact">
+            <p class="section-kicker">Location scouting</p>
+            <h2>Build the venue library first.</h2>
+            <p>Save possible locations with capacity, booth potential, costs, contact details, and event-fit notes. Local event planning starts here.</p>
+          </div>
+
+          <div class="event-planner-layout">
+            <form id="chapter-location-form" class="event-form">
+              <label>Location name
+                <input name="name" required placeholder="Example: Frankfort Park District">
+              </label>
+              <label>City
+                <input name="city" placeholder="Frankfort">
+              </label>
+              <label>Address
+                <input name="address" placeholder="Street address or area">
+              </label>
+              <label>Contact person
+                <input name="contactName" placeholder="Name">
+              </label>
+              <label>Contact info
+                <input name="contactInfo" placeholder="Phone, email, website">
+              </label>
+              <label>Scouting status
+                <select name="status">
+                  <option value="lead">Lead</option>
+                  <option value="contacted">Contacted</option>
+                  <option value="pricing-needed">Pricing needed</option>
+                  <option value="available">Available</option>
+                  <option value="not-a-fit">Not a fit</option>
+                </select>
+              </label>
+              <label>Gathering fit
+                <select name="gatheringFit">
+                  <option value="conversation-friendly">Conversation-friendly</option>
+                  <option value="quiet-class">Quiet class / lecture</option>
+                  <option value="market-friendly">Market / booth friendly</option>
+                  <option value="large-scale">Large-scale future venue</option>
+                  <option value="unclear">Needs research</option>
+                </select>
+              </label>
+              <label>Capacity
+                <input type="number" name="capacity" min="0" value="50">
+              </label>
+              <label>Booth spaces
+                <input type="number" name="booths" min="0" value="12">
+              </label>
+              <label>Base cost
+                <input type="number" name="cost" min="0" value="0">
+              </label>
+              <label>Required extras
+                <input type="number" name="requiredExtras" min="0" value="0">
+              </label>
+              <label class="full">Best event fits
+                <input name="fits" placeholder="Markets, speaker nights, workshops, healing circles, booth fairs...">
+              </label>
+              <label class="full">Location notes
+                <textarea name="notes" rows="4" placeholder="Parking, tables, chairs, kitchen, insurance, deposit, layout, availability, concerns..."></textarea>
+              </label>
+              <button class="button primary" type="submit">Save location</button>
+              <p id="chapter-location-status" role="status"></p>
+            </form>
+
+            <div>
+              <div id="location-summary" class="event-math-preview"></div>
+              <div class="location-filter-bar">
+                <label>Area
+                  <select id="location-area-filter">
+                    <option value="">Choose area</option>
+                  </select>
+                </label>
+                <label>Capacity
+                  <select id="location-capacity-filter">
+                    <option value="">Choose size</option>
+                    <option value="small">Small: up to 85</option>
+                    <option value="medium">Medium: 86-200</option>
+                    <option value="large">Large: 201+</option>
+                  </select>
+                </label>
+                <label>Fit
+                  <select id="location-fit-filter">
+                    <option value="">Choose fit</option>
+                    <option value="conversation-friendly">Conversation-friendly</option>
+                    <option value="quiet-class">Quiet class / lecture</option>
+                    <option value="market-friendly">Market / booth friendly</option>
+                    <option value="large-scale">Large-scale future venue</option>
+                    <option value="unclear">Needs research</option>
+                  </select>
+                </label>
+              </div>
+              <div class="venue-option-list">
+                <h4>Location research queue</h4>
+                <div id="chapter-location-research-list" class="chapter-event-list"></div>
+              </div>
+              <div id="chapter-location-list" class="chapter-event-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter-card event-planner-card">
+          <div class="section-heading compact">
+            <p class="section-kicker">Chapter events</p>
+            <h2>Build the event from a location.</h2>
+            <p>Choose the event model after you know the room, capacity, booth potential, cost, parking, and local fit.</p>
+          </div>
+
+          <div class="event-planner-layout">
+            <form id="chapter-event-form" class="event-form">
+              <label>Event name
+                <input name="name" required placeholder="Example: Chapter 001 Mother Earth Gathering">
+              </label>
+              <label>Event type
+                <select name="type">
+                  <option value="Weekend speaker event">Weekend speaker event</option>
+                  <option value="Mother Earth Market">Mother Earth Market</option>
+                  <option value="Local booth fair">Local booth fair</option>
+                  <option value="Workshop day">Workshop day</option>
+                  <option value="Healing arts circle">Healing arts circle</option>
+                  <option value="Fundraiser / community night">Fundraiser / community night</option>
+                </select>
+              </label>
+              <label>Target date
+                <input type="date" name="targetDate">
+              </label>
+              <label>Expected attendees
+                <input type="number" name="attendees" min="0" value="50">
+              </label>
+              <label>Entry / ticket amount
+                <input type="number" name="ticketPrice" min="0" value="10">
+              </label>
+              <label>Booth spaces
+                <input type="number" name="booths" min="0" value="12">
+              </label>
+              <label>Booth contribution
+                <input type="number" name="boothPrice" min="0" value="35">
+              </label>
+              <label>Speaker slots
+                <input type="number" name="speakerSlots" min="0" value="3">
+              </label>
+              <label>Speaker/session contribution
+                <input type="number" name="speakerPrice" min="0" value="0">
+              </label>
+              <label>Marketing / print cost
+                <input type="number" name="marketingCost" min="0" value="75">
+              </label>
+              <label>Other expenses
+                <input type="number" name="otherCost" min="0" value="50">
+              </label>
+              <label class="full">People to invite
+                <textarea name="people" rows="3" placeholder="Speakers, vendors, practitioners, venues, sponsors, volunteers..."></textarea>
+              </label>
+              <label class="full">Planning notes
+                <textarea name="notes" rows="4" placeholder="Theme, audience, venue questions, booth layout, ticketing, insurance/legal review, food, parking..."></textarea>
+              </label>
+              <button class="button primary" type="submit">Save event plan</button>
+              <p id="chapter-event-status" role="status"></p>
+            </form>
+
+            <div>
+              <div id="event-math-preview" class="event-math-preview"></div>
+              <div class="event-stage-guide">
+                <span>Idea</span>
+                <span>Scouting</span>
+                <span>Ready to launch</span>
+                <span>Promoting</span>
+              </div>
+              <div id="chapter-event-list" class="chapter-event-list"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="admin-chapters.js" type="module"></script>
+  </body>
+</html>

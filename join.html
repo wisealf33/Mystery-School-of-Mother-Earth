@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Member Onboarding | Mystery School of Mother Earth</title>
+    <meta name="description" content="Member onboarding for Mystery School of Mother Earth.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="portal-body">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Member Onboarding</strong>
+          <small>Mystery School of Mother Earth</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Member navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a href="login.html">Member Login</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main>
+      <section class="portal-hero">
+        <div>
+          <p class="section-kicker">Private membership association</p>
+          <h1>Join the community doorway.</h1>
+          <p>Request membership access to Mystery School of Mother Earth and begin the private onboarding path into the association, where spiritual growth, healing arts, aligned community, and future member opportunities can unfold together.</p>
+        </div>
+      </section>
+
+      <section class="split-section">
+        <div>
+          <p class="section-kicker">What membership means</p>
+          <h2>This is a private doorway into the community, not a public listing form.</h2>
+          <p>The public website helps people discover the project, the journal, the directory, and the events that are forming. Membership is the private side of the association. It is how people step in more fully, confirm their interest, and become part of the member community that will support future circles, gatherings, promotions, and shared opportunities.</p>
+        </div>
+        <div class="path">
+          <div><strong>1</strong><span>Request access through the membership page</span></div>
+          <div><strong>2</strong><span>Review and sign the private association agreement</span></div>
+          <div><strong>3</strong><span>Complete activation from the member dashboard</span></div>
+          <div><strong>4</strong><span>Move into the member side of the association</span></div>
+        </div>
+      </section>
+
+      <section class="onboarding-section">
+        <form id="onboarding-form" class="onboarding-form">
+          <article class="onboarding-card">
+            <span class="step-badge">1</span>
+            <h2>Request membership access</h2>
+            <div class="form-grid">
+              <label>First name <input name="firstName" required autocomplete="given-name"></label>
+              <label>Last name <input name="lastName" required autocomplete="family-name"></label>
+              <label>Email <input type="email" name="email" required autocomplete="email"></label>
+              <label>Phone <input type="tel" name="phone" autocomplete="tel"></label>
+              <label>Password <input type="password" name="password" required minlength="6" autocomplete="new-password"></label>
+              <label>Town / city <input name="city" autocomplete="address-level2"></label>
+              <label>State <input name="state" autocomplete="address-level1"></label>
+              <label>ZIP code <input name="zip" inputmode="numeric" autocomplete="postal-code"></label>
+            </div>
+          </article>
+
+          <article class="onboarding-card">
+            <span class="step-badge">2</span>
+            <h2>Review the Members Association Agreement</h2>
+            <div class="agreement-version" id="agreement-version"></div>
+            <div class="agreement-box" id="agreement-box"></div>
+            <label class="check-row agreement-check">
+              <input type="checkbox" name="agreementAccepted" required>
+              <span>I have read and agree to the Members Association Agreement.</span>
+            </label>
+            <label>Electronic signature
+              <input name="signature" required placeholder="Type your full legal name">
+            </label>
+          </article>
+
+          <button class="button primary" id="complete-onboarding" type="submit">Create member account</button>
+          <p id="onboarding-status" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="join.js" type="module"></script>
+  </body>
+</html>

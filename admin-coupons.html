@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coupon Management | Mystery School of Mother Earth</title>
+    <meta name="description" content="Coupon management for Mystery School of Mother Earth.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="management-body">
+    <header class="site-header dashboard-header">
+      <a class="brand" href="manage.html" aria-label="Back to admin dashboard">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Coupon Management</strong>
+          <small>private administration</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Coupon management navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a href="member.html">Member Dashboard</a>
+        <a href="manage.html">Admin Home</a>
+        <a href="admin-members.html">Members</a>
+        <a href="admin-directory.html">Directory</a>
+        <a href="admin-chapters.html">Chapters</a>
+        <button class="nav-button" id="admin-logout-button" type="button">Log out</button>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main>
+      <section id="coupons" class="dashboard-section coupon-section">
+        <div class="section-heading">
+          <p class="section-kicker">Member activation</p>
+          <h2>Coupon system</h2>
+          <p>Create a one-use membership activation coupon for a specific person after you have approved another payment or contribution arrangement.</p>
+        </div>
+        <div class="coupon-layout">
+          <form id="coupon-form" class="coupon-form">
+            <label>Member name
+              <input name="memberName" required placeholder="First and last name">
+            </label>
+            <label>Member email
+              <input type="email" name="memberEmail" placeholder="Optional but helpful">
+            </label>
+            <label>Payment / approval type
+              <select name="paymentType">
+                <option value="cash">Cash payment</option>
+                <option value="zelle">Zelle payment</option>
+                <option value="venmo">Venmo payment</option>
+                <option value="paypal">PayPal payment</option>
+                <option value="check">Check payment</option>
+                <option value="barter">Barter / trade</option>
+                <option value="scholarship">Scholarship</option>
+                <option value="complimentary">Complimentary access</option>
+                <option value="founder">Founder access</option>
+                <option value="offline">Other offline payment</option>
+              </select>
+            </label>
+            <label class="full">Admin note
+              <textarea name="notes" rows="4" placeholder="Optional note about how this was approved"></textarea>
+            </label>
+            <button class="button primary" type="submit">Issue one-use coupon</button>
+            <p id="coupon-status" role="status"></p>
+          </form>
+          <div id="coupon-list" class="coupon-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="admin-coupons.js" type="module"></script>
+  </body>
+</html>

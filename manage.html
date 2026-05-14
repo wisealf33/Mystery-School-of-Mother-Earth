@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Launch Dashboard | Mystery School of Mother Earth</title>
+    <meta name="description" content="Private local launch dashboard for organizing the Mystery School of Mother Earth project.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="management-body">
+    <header class="site-header dashboard-header">
+      <a class="brand" href="index.html" aria-label="Back to website">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Admin Dashboard</strong>
+          <small>private administration</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Dashboard navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a href="directory.html">Directory</a>
+        <a href="member.html">Member Dashboard</a>
+        <button class="nav-button" id="admin-logout-button" type="button">Log out</button>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main>
+      <section class="dashboard-hero">
+        <div>
+          <p class="section-kicker">Project command center</p>
+          <h1>Build the foundation one clear step at a time.</h1>
+          <p>This private local dashboard turns the big vision into weekly actions: Facebook setup, newsletter launch, vendor/practitioner outreach, intake tools, website growth, and the first Mother Earth Market path.</p>
+        </div>
+        <aside class="dashboard-summary" aria-label="Progress summary">
+          <span>Overall Progress</span>
+          <strong id="overall-progress">0%</strong>
+          <div class="progress-bar"><span id="overall-progress-bar"></span></div>
+          <p id="progress-note">Start with the Foundation Setup and Facebook tracks.</p>
+        </aside>
+      </section>
+
+      <nav class="dashboard-nav admin-dashboard-nav admin-quick-nav" aria-label="Admin quick links">
+        <a href="admin-members.html">Members</a>
+        <a href="admin-directory.html">Directory</a>
+        <a href="admin-chapters.html">Chapters</a>
+        <a href="admin-coupons.html">Coupons</a>
+      </nav>
+
+      <nav class="dashboard-nav admin-dashboard-nav" aria-label="Admin dashboard sections">
+        <a href="#weekly">This Week</a>
+        <a href="#tools">Admin Tools</a>
+        <a href="#tracks">Tracks</a>
+        <a href="#scripts">Copy Bank</a>
+        <a href="#notes">Notes</a>
+      </nav>
+
+      <section id="weekly" class="weekly-panel">
+        <div>
+          <p class="section-kicker">Recommended next move</p>
+          <h2>This week’s launch sprint</h2>
+        </div>
+        <div id="weekly-actions" class="weekly-actions"></div>
+      </section>
+
+      <section id="tools" class="dashboard-section admin-tools-section">
+        <div class="section-heading">
+          <p class="section-kicker">Admin tools</p>
+          <h2>Open the area you need.</h2>
+          <p>Keep member operations, coupon issuing, launch tracks, and copy resources separated so the dashboard stays clear.</p>
+        </div>
+        <div class="admin-tool-grid">
+          <a class="admin-tool-card" href="admin-members.html">
+            <span>Members</span>
+            <h3>Manage members and fulfillment</h3>
+            <p>See active/inactive members, assign deliverables, and track what has been fulfilled.</p>
+          </a>
+          <a class="admin-tool-card" href="admin-directory.html">
+            <span>Directory</span>
+            <h3>Seed and manage directory listings</h3>
+            <p>Add aligned people before they join, review claim requests, and connect listings to verified members.</p>
+          </a>
+          <a class="admin-tool-card" href="admin-coupons.html">
+            <span>Coupons</span>
+            <h3>Issue activation coupons</h3>
+            <p>Create one-use coupons for members who complete payment or approval another way.</p>
+          </a>
+          <a class="admin-tool-card" href="admin-chapters.html">
+            <span>Chapters</span>
+            <h3>Manage local chapter access</h3>
+            <p>Assign eligible local members to Chapter 001 and keep broader PMA membership separate.</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="tracks" class="dashboard-section">
+        <div class="section-heading">
+          <p class="section-kicker">Step-by-step tracks</p>
+          <h2>Work the project from the outside in.</h2>
+          <p>Use these tracks as your launch map. The checkboxes save on this device, so this can become your working ritual each time you sit down with the project.</p>
+        </div>
+        <div id="track-list" class="track-list"></div>
+      </section>
+
+      <section id="scripts" class="dashboard-section script-section">
+        <div class="section-heading">
+          <p class="section-kicker">Copy bank</p>
+          <h2>Reusable public language</h2>
+          <p>Use these as starting points for Facebook, outreach, newsletter, and flyer copy. Keep the public language grounded, then open the door to the deeper mystery-school layer.</p>
+        </div>
+        <div id="script-list" class="script-list"></div>
+      </section>
+
+      <section id="notes" class="dashboard-section notes-section">
+        <div>
+          <p class="section-kicker">Working notes</p>
+          <h2>Capture what you decide as you build.</h2>
+          <p>These notes save locally in your browser. Later we can connect this to Notion, Airtable, Google Sheets, or a real admin dashboard.</p>
+        </div>
+        <form class="notes-form">
+          <label>Current focus
+            <input id="focus-note" placeholder="Example: create Facebook Page and first 3 posts">
+          </label>
+          <label class="full">Open questions
+            <textarea id="question-note" rows="5" placeholder="Legal review, membership terms, first venue, vendor pricing, newsletter tool..."></textarea>
+          </label>
+          <label class="full">People to contact
+            <textarea id="contact-note" rows="5" placeholder="Names of vendors, practitioners, venues, helpers, circle-builders..."></textarea>
+          </label>
+          <button class="button primary" type="button" id="save-notes">Save notes</button>
+          <p id="notes-status" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Mystery School of Mother Earth</strong></p>
+      <p>Private administration for member operations, launch planning, and association management.</p>
+    </footer>
+
+    <script src="manage.js" type="module"></script>
+  </body>
+</html>

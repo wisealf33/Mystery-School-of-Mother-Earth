@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Member Login | Mystery School of Mother Earth</title>
+    <meta name="description" content="Member login for Mystery School of Mother Earth.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="portal-body">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Member Login</strong>
+          <small>Mystery School of Mother Earth</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Login navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a class="nav-cta" href="join.html">Join</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main class="login-shell">
+      <form id="login-form" class="login-card">
+        <p class="section-kicker">Member portal</p>
+        <h1>Log in to your dashboard.</h1>
+        <p>Members can access their dashboard after onboarding. The first local member account becomes the administrator.</p>
+        <label>Email <input type="email" name="email" required autocomplete="email"></label>
+        <label>Password <input type="password" name="password" required autocomplete="current-password"></label>
+        <button class="button primary" type="submit">Log in</button>
+        <p id="login-status" role="status"></p>
+      </form>
+    </main>
+
+    <script src="login.js" type="module"></script>
+  </body>
+</html>

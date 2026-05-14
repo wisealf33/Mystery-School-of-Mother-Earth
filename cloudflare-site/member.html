@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Member Dashboard | Mystery School of Mother Earth</title>
+    <meta name="description" content="Member dashboard for Mystery School of Mother Earth.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="portal-body">
+    <header class="site-header">
+      <a class="brand" href="member.html">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Member Dashboard</strong>
+          <small id="member-role-label">member portal</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Member dashboard navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a href="directory.html">Directory</a>
+        <a id="admin-link" href="manage.html" hidden>Admin</a>
+        <button class="nav-button" id="logout-button" type="button">Log out</button>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main>
+      <section class="member-hero">
+        <div>
+          <p class="section-kicker">Welcome</p>
+          <h1 id="member-welcome">Your member dashboard</h1>
+          <p id="member-hero-copy">This is the private member home base.</p>
+        </div>
+      </section>
+
+      <nav class="dashboard-nav member-dashboard-nav" aria-label="Member dashboard sections">
+        <a href="#member-status-panel">Status</a>
+        <a href="#activation-section">Activation</a>
+        <a href="#profile">Profile</a>
+        <a href="#chapters">Chapters</a>
+      </nav>
+
+      <section id="activation-section" class="activation-section" hidden>
+        <div>
+          <p class="section-kicker">Membership activation</p>
+          <h2>Complete member activation</h2>
+          <p>Your member account and agreement are recorded. Complete activation with the member contribution step or a membership coupon from the administrator.</p>
+        </div>
+        <form id="activation-form" class="activation-form">
+          <div class="activation-choice" role="radiogroup" aria-label="Activation method">
+            <label class="choice-card">
+              <input type="radio" name="activationMethod" value="card" checked>
+              <span>Member contribution completion</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="activationMethod" value="coupon">
+              <span>Use membership coupon</span>
+            </label>
+          </div>
+          <div class="contribution-fields" id="member-card-fields">
+            <label>Card number <input name="cardNumber" inputmode="numeric" placeholder="4242 4242 4242 4242"></label>
+            <label>Expiration <input name="expiration" placeholder="12/30"></label>
+            <label>CVC <input name="cvc" inputmode="numeric" placeholder="123"></label>
+            <label>Name on card <input name="cardName"></label>
+          </div>
+          <div class="coupon-fields" id="member-coupon-fields" hidden>
+            <label>Membership coupon
+              <input name="couponCode" placeholder="Enter membership coupon">
+            </label>
+            <p class="muted">Use this when the administrator has approved founder, offline payment, barter, scholarship, or complimentary access.</p>
+          </div>
+          <button class="button primary" type="submit">Activate membership</button>
+          <p id="activation-status" role="status"></p>
+        </form>
+      </section>
+
+      <section class="member-grid-section">
+        <article class="member-panel" id="member-status-panel">
+          <h2>Membership Status</h2>
+          <div id="member-status-list" class="status-list"></div>
+        </article>
+        <article class="member-panel" id="member-pathways-panel">
+          <h2>Next Member Pathways</h2>
+          <div class="member-actions">
+            <a class="button primary" href="#profile">Update profile interests</a>
+            <a class="button quiet" href="#chapters">View chapters</a>
+            <a class="button quiet" href="index.html#directory">View directory</a>
+          </div>
+        </article>
+        <article class="member-panel admin-panel" id="admin-panel" hidden>
+          <h2>Administrator Access</h2>
+          <p>You are the founding administrator. Use the organization manager to run launch tracks, copy outreach language, track promotion steps, and organize the buildout.</p>
+          <a class="button primary" href="manage.html">Open organization manager</a>
+        </article>
+      </section>
+
+      <section id="profile" class="profile-section" hidden>
+        <div>
+          <p class="section-kicker">Member profile</p>
+          <h2>What do you want to participate in?</h2>
+          <p>These preferences help shape member discovery, newsletter features, member opportunities, local circles, and future applications.</p>
+        </div>
+        <form id="member-profile-form" class="notes-form">
+          <label>Public/member display name <input id="profile-display-name"></label>
+          <label>Primary offering or interest <input id="profile-offer"></label>
+          <label class="full">Pathways
+            <select id="profile-pathway">
+              <option>Basic member</option>
+              <option>Vendor / practitioner upgrade</option>
+              <option>Circle builder</option>
+              <option>Market vendor</option>
+              <option>Teacher / workshop host</option>
+              <option>Volunteer / supporter</option>
+            </select>
+          </label>
+          <label class="full">Notes
+            <textarea id="profile-notes" rows="5"></textarea>
+          </label>
+          <button class="button primary" type="button" id="save-profile">Save profile</button>
+          <p id="profile-status" role="status"></p>
+        </form>
+      </section>
+
+      <section id="chapters" class="profile-section" hidden>
+        <div>
+          <p class="section-kicker">Local chapters</p>
+          <h2>Umbrella membership first, local chapter when available.</h2>
+          <p>All members belong to the broader private membership association. Local chapters are added when a member is in the proper area or is assigned by an administrator.</p>
+        </div>
+        <div id="member-chapter-list" class="member-chapter-list"></div>
+      </section>
+    </main>
+
+    <script src="member.js" type="module"></script>
+  </body>
+</html>

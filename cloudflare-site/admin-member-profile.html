@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Member Profile | Mystery School of Mother Earth</title>
+    <meta name="description" content="Private administrator member profile for Mystery School of Mother Earth.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="management-body">
+    <header class="site-header dashboard-header">
+      <a class="brand" href="admin-members.html" aria-label="Back to member management">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Member Profile</strong>
+          <small>private administration</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Member profile navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a href="member.html">Member Dashboard</a>
+        <a href="manage.html">Admin Home</a>
+        <a href="admin-members.html">Members</a>
+        <a href="admin-directory.html">Directory</a>
+        <a href="admin-chapters.html">Chapters</a>
+        <a href="admin-coupons.html">Coupons</a>
+        <button class="nav-button" id="admin-logout-button" type="button">Log out</button>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main>
+      <section class="dashboard-section member-profile-admin-section">
+        <div id="profile-shell"></div>
+      </section>
+    </main>
+
+    <script src="admin-member-profile.js" type="module"></script>
+  </body>
+</html>

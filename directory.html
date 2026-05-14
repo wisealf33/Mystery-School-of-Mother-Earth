@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Directory | Mystery School of Mother Earth</title>
+    <meta name="description" content="A curated public directory for aligned practitioners, teachers, healers, natural living resources, events, and community connections.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Mystery School of Mother Earth home">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Mystery School</strong>
+          <small>of Mother Earth</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Primary navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a href="directory.html">Directory</a>
+        <a href="login.html">Member Login</a>
+        <a class="nav-cta" href="join.html">Join</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main>
+      <section class="portal-hero directory-hero">
+        <div>
+          <p class="section-kicker">Curated public directory</p>
+          <h1>Find aligned people, events, and places near you.</h1>
+          <p>Discover healers, teachers, guides, natural-living resources, community allies, events, and member-connected offerings. You can browse the public feed right away, and location or ZIP code just helps nearby listings rise to the top.</p>
+        </div>
+        <aside class="location-consent-card">
+          <p class="section-kicker">Nearby suggestions</p>
+          <h2>Use location for better nearby results?</h2>
+          <p>Your browser will ask permission first. You can also enter a ZIP code manually, or keep browsing the public feed without sharing location.</p>
+          <div class="location-actions">
+            <button class="button primary" id="use-location-button" type="button">Use my location</button>
+            <form id="zip-location-form">
+              <label>ZIP code
+                <input name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="60468">
+              </label>
+              <button class="button quiet" type="submit">Use ZIP</button>
+            </form>
+          </div>
+          <p id="location-status" role="status"></p>
+        </aside>
+      </section>
+
+      <section class="section directory-section">
+        <div class="section-heading">
+          <p class="section-kicker">Discovery</p>
+          <h2>Recent events and featured listings come first.</h2>
+          <p>The top of the page acts like a public feed. Upcoming events, promoted items, and affiliate-supported listings appear first, then the searchable directory continues below.</p>
+        </div>
+
+        <div id="directory-feed" class="directory-feed"></div>
+
+        <div class="directory-search-panel">
+          <label>Search
+            <input id="directory-search" placeholder="QHHT, yoga, healer, Kankakee, event...">
+          </label>
+          <label>Category
+            <select id="directory-category-filter">
+              <option value="">All categories</option>
+            </select>
+          </label>
+          <label>Tag
+            <select id="directory-tag-filter">
+              <option value="">All tags</option>
+            </select>
+          </label>
+          <label>Sort
+            <select id="directory-sort">
+              <option value="curated">Curated</option>
+              <option value="nearby">Nearby first</option>
+              <option value="name">Name</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="directory-list" class="directory-list public-directory-list"></div>
+      </section>
+
+      <section id="claim-listing" class="join-section claim-section" hidden>
+        <div>
+          <p class="section-kicker">Claim a listing</p>
+          <h2>Are you connected to <span id="claim-listing-name">this listing</span>?</h2>
+          <p>Submit a claim request so the administrator can verify that you are the proper person to manage this directory listing.</p>
+        </div>
+        <form id="claim-form" class="interest-form">
+          <input type="hidden" id="claim-listing-id" name="listingId">
+          <input type="hidden" id="claim-listing-title" name="listingName">
+          <label>Your name <input name="claimantName" required autocomplete="name"></label>
+          <label>Email <input type="email" name="claimantEmail" required autocomplete="email"></label>
+          <label>Phone <input name="claimantPhone" autocomplete="tel"></label>
+          <label>Relationship to listing
+            <input name="relationship" placeholder="Owner, practitioner, organizer, assistant...">
+          </label>
+          <label class="full">Anything the administrator should know?
+            <textarea name="notes" rows="4" placeholder="How to verify you, preferred contact, corrections needed, or whether you want to discuss membership."></textarea>
+          </label>
+          <button class="button primary" type="submit">Submit claim request</button>
+          <p id="claim-status" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Mystery School of Mother Earth</strong></p>
+      <p>A private membership association for earth-centered living, healing arts, spiritual growth, practical wisdom, and aligned community.</p>
+    </footer>
+
+    <script src="directory.js" type="module"></script>
+  </body>
+</html>

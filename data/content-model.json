@@ -1,0 +1,61 @@
+{
+  "membershipLevels": [
+    {
+      "name": "Basic Member",
+      "priceConcept": "Member-only contribution after agreement",
+      "purpose": "The required front door into the private membership association.",
+      "publicPositioning": "Join the private association and participate in the online Mother Earth community.",
+      "memberOpportunities": [
+        "Receive member newsletter",
+        "Join private member channels",
+        "Submit interests and skills",
+        "Attend member opportunities when available",
+        "Apply for vendor, practitioner, circle, class, or market pathways"
+      ]
+    },
+    {
+      "name": "Vendor / Practitioner Upgrade",
+      "priceConcept": "Member-only upgrade contribution after approval",
+      "purpose": "For basic members who want to promote a business, service, product, class, circle, workshop, or project inside the association.",
+      "memberOpportunities": [
+        "Directory listing",
+        "Website placement",
+        "Newsletter placement",
+        "Facebook spotlight",
+        "Mother Earth Market participation",
+        "Workshop or event submission",
+        "Featured member opportunities"
+      ]
+    }
+  ],
+  "intakeTypes": [
+    "Basic membership",
+    "Vendor / practitioner",
+    "Circle builder",
+    "Market vendor",
+    "Teacher / workshop host",
+    "Newsletter contributor",
+    "Volunteer / supporter",
+    "Sponsor / partner"
+  ],
+  "directoryCategories": [
+    "Growers",
+    "Healing Arts",
+    "Makers",
+    "Teachers",
+    "Green Business",
+    "Circle Builders",
+    "Local Resilience",
+    "Spiritual Growth"
+  ],
+  "newsletterSections": [
+    "Opening note",
+    "Member spotlight",
+    "Vendor / practitioner feature",
+    "Earth skill of the week",
+    "Upcoming member opportunities",
+    "Circle-builder update",
+    "Mother Earth Market planning note",
+    "Community asks and offers"
+  ]
+}

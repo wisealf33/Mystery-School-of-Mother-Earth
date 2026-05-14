@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Member Management | Mystery School of Mother Earth</title>
+    <meta name="description" content="Member management for Mystery School of Mother Earth.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="management-body">
+    <header class="site-header dashboard-header">
+      <a class="brand" href="manage.html" aria-label="Back to admin dashboard">
+        <span class="brand-mark" aria-hidden="true">MS</span>
+        <span>
+          <strong>Member Management</strong>
+          <small>private administration</small>
+        </span>
+      </a>
+      <nav id="primary-nav" aria-label="Member management navigation">
+        <a href="index.html">Website</a>
+        <a href="journal.html">Journal</a>
+        <a href="member.html">Member Dashboard</a>
+        <a href="manage.html">Admin Home</a>
+        <a href="admin-directory.html">Directory</a>
+        <a href="admin-chapters.html">Chapters</a>
+        <a href="admin-coupons.html">Coupons</a>
+        <button class="nav-button" id="admin-logout-button" type="button">Log out</button>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </header>
+
+    <main>
+      <section id="members" class="dashboard-section member-admin-section">
+        <div class="section-heading">
+          <p class="section-kicker">Member management</p>
+          <h2>See who needs what, and what has been fulfilled.</h2>
+          <p>Track each member’s status, member opportunities, promotions, deliverables, and whether the association has completed what was promised.</p>
+        </div>
+
+        <div id="member-ops-summary" class="member-ops-summary"></div>
+
+        <div class="member-ops-layout">
+          <form id="deliverable-form" class="deliverable-form">
+            <h3>Add member deliverable</h3>
+            <label>Member
+              <select name="memberId" id="deliverable-member"></select>
+            </label>
+            <label>Type
+              <select name="type">
+                <option value="Directory listing">Directory listing</option>
+                <option value="Newsletter feature">Newsletter feature</option>
+                <option value="Facebook spotlight">Facebook spotlight</option>
+                <option value="Event promotion">Event promotion</option>
+                <option value="Ad placement">Ad placement</option>
+                <option value="Practitioner profile">Practitioner profile</option>
+                <option value="Workshop/class listing">Workshop/class listing</option>
+                <option value="Other member support">Other member support</option>
+              </select>
+            </label>
+            <label>Deliverable title
+              <input name="title" required placeholder="Example: June newsletter feature">
+            </label>
+            <label>Due date
+              <input type="date" name="dueDate">
+            </label>
+            <label>Status
+              <select name="status">
+                <option value="needs-info">Needs info</option>
+                <option value="pending">Pending</option>
+                <option value="scheduled">Scheduled</option>
+                <option value="fulfilled">Fulfilled</option>
+              </select>
+            </label>
+            <label class="full">Notes / proof link
+              <textarea name="notes" rows="4" placeholder="Bio needed, image received, scheduled date, post/newsletter link..."></textarea>
+            </label>
+            <button class="button primary" type="submit">Add deliverable</button>
+            <p id="deliverable-status" role="status"></p>
+          </form>
+
+          <div id="member-admin-list" class="member-admin-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="admin-members.js" type="module"></script>
+  </body>
+</html>
