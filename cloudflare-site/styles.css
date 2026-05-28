@@ -1711,6 +1711,39 @@ textarea {
   font-weight: 900;
 }
 
+.content-section {
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(239, 231, 255, 0.88));
+}
+
+.content-studio-layout {
+  display: grid;
+  gap: 16px;
+}
+
+.content-studio-layout textarea {
+  min-height: 480px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf7;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.content-studio-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+#content-status {
+  margin: 0;
+  color: var(--moss);
+  font-weight: 900;
+}
+
 .portal-body {
   background: var(--paper);
 }

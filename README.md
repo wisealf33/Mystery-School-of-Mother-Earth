@@ -6,6 +6,7 @@ Website, member portal, and administration system for a private membership assoc
 
 - A polished static website in `index.html`, `styles.css`, and `app.js`
 - A private local launch dashboard in `manage.html` and `manage.js`
+- A content studio in the admin dashboard for editing homepage and journal copy
 - An onboarding, login, and member dashboard flow in `join.html`, `login.html`, and `member.html`
 - A project-bound hero image in `assets/mother-earth-hero.png`
 - A starter content model in `data/content-model.json`
@@ -74,9 +75,10 @@ Keep membership terms, association agreements, liability language, vendor terms,
 ## Suggested Next Development Steps
 
 1. Replace sample directory entries with real founding applicants.
-2. Connect the interest form to a real email and intake tool.
-3. Add separate pages for membership, directory, newsletter, circles, and market once content volume grows.
-4. Add private member login or gated content when the association is ready.
-5. Add private member contribution/payment handling only after membership terms and PMA documents are reviewed.
-6. Build an admin workflow for approving vendor/practitioner listings.
-7. Create event pages for Chapter 001 around Peotone, Kankakee, Wilmington, and nearby south/southwest communities.
+2. Use the content studio to update homepage and journal copy without hand-editing every page.
+3. Connect the interest form to a real email and intake tool.
+4. Add separate pages for membership, directory, newsletter, circles, and market once content volume grows.
+5. Add private member login or gated content when the association is ready.
+6. Add private member contribution/payment handling only after membership terms and PMA documents are reviewed.
+7. Build an admin workflow for approving vendor/practitioner listings.
+8. Create event pages for Chapter 001 around Peotone, Kankakee, Wilmington, and nearby south/southwest communities.

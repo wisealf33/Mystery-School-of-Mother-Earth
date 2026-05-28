@@ -1,5 +1,6 @@
 import { requireMember, signOut } from "./auth.js";
 import { wireResponsiveNav } from "./nav.js";
+import { defaultSiteContent, getSiteContent, parseSiteContentJson, resetSiteContent, saveSiteContent, siteContentJson } from "./site-content.js";
 
 const adminMember = requireMember({ adminOnly: true });
 const primaryNav = document.querySelector("#primary-nav");
@@ -107,6 +108,11 @@ const scriptList = document.querySelector("#script-list");
 const overallProgress = document.querySelector("#overall-progress");
 const overallProgressBar = document.querySelector("#overall-progress-bar");
 const progressNote = document.querySelector("#progress-note");
+const contentJson = document.querySelector("#content-json");
+const contentStatus = document.querySelector("#content-status");
+const saveContentButton = document.querySelector("#save-content");
+const exportContentButton = document.querySelector("#export-content");
+const resetContentButton = document.querySelector("#reset-content");
 
 function loadProgress() {
   return JSON.parse(localStorage.getItem(storageKey) || "{}");
@@ -240,3 +246,39 @@ renderWeeklyActions();
 renderScripts();
 renderProgress();
 setupNotes();
+
+function loadContentEditor() {
+  if (!contentJson) return;
+  contentJson.value = siteContentJson(getSiteContent());
+
+  saveContentButton?.addEventListener("click", () => {
+    try {
+      const parsed = parseSiteContentJson(contentJson.value);
+      saveSiteContent(parsed);
+      contentStatus.textContent = "Saved to this browser. Refresh the public pages to preview the updated content.";
+    } catch (error) {
+      contentStatus.textContent = `Could not save content JSON: ${error.message}`;
+    }
+  });
+
+  exportContentButton?.addEventListener("click", () => {
+    const blob = new Blob([contentJson.value], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "mother-earth-site-content.json";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    contentStatus.textContent = "Exported JSON file.";
+  });
+
+  resetContentButton?.addEventListener("click", () => {
+    resetSiteContent();
+    contentJson.value = siteContentJson(defaultSiteContent);
+    contentStatus.textContent = "Reset to defaults. The public pages will use the built-in content again.";
+  });
+}
+
+loadContentEditor();

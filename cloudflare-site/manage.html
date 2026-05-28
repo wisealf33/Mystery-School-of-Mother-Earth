@@ -52,6 +52,7 @@
         <a href="#weekly">This Week</a>
         <a href="#tools">Admin Tools</a>
         <a href="#tracks">Tracks</a>
+        <a href="#content">Content</a>
         <a href="#scripts">Copy Bank</a>
         <a href="#notes">Notes</a>
       </nav>
@@ -90,6 +91,11 @@
             <span>Chapters</span>
             <h3>Manage local chapter access</h3>
             <p>Assign eligible local members to Chapter 001 and keep broader PMA membership separate.</p>
+          </a>
+          <a class="admin-tool-card" href="#content">
+            <span>Content</span>
+            <h3>Update journal and homepage copy</h3>
+            <p>Edit the public-facing content from one place and export a clean JSON backup.</p>
           </a>
         </div>
       </section>
@@ -131,6 +137,25 @@
           <button class="button primary" type="button" id="save-notes">Save notes</button>
           <p id="notes-status" role="status"></p>
         </form>
+      </section>
+
+      <section id="content" class="dashboard-section content-section">
+        <div class="section-heading compact">
+          <p class="section-kicker">Content studio</p>
+          <h2>Update the public journal and homepage content from one place.</h2>
+          <p>Edit the JSON, save it on this device for previewing, or export it to commit back into the site files when you’re ready.</p>
+        </div>
+        <div class="content-studio-layout">
+          <label class="full">Content JSON
+            <textarea id="content-json" rows="28" spellcheck="false"></textarea>
+          </label>
+          <div class="content-studio-actions">
+            <button class="button primary" type="button" id="save-content">Save content</button>
+            <button class="button secondary" type="button" id="export-content">Export JSON</button>
+            <button class="button secondary" type="button" id="reset-content">Reset to defaults</button>
+            <p id="content-status" role="status"></p>
+          </div>
+        </div>
       </section>
     </main>
 

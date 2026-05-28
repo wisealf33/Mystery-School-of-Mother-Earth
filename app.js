@@ -1,4 +1,5 @@
 import { getCurrentMember, signOut } from "./auth.js";
+import { getSiteContent, renderHomepageContent, renderJournalContent } from "./site-content.js";
 
 const form = document.querySelector("#interest-form");
 const status = document.querySelector("#form-status");
@@ -54,3 +55,7 @@ if (form) {
 
 renderSessionNav();
 wireMenu();
+
+const siteContent = getSiteContent();
+renderHomepageContent(siteContent);
+renderJournalContent(siteContent);
